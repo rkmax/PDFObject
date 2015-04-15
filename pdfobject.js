@@ -51,9 +51,9 @@ var PDFObject = function (obj){
     //Tests specifically for Adobe Reader (aka Acrobat) in Internet Explorer
     hasReaderActiveX = function (){
 
-        var axObj = null;
+        var axObj;
 
-        if (window.ActiveXObject) {
+        if (window.ActiveXObject || (window.hasOwnProperty && window.hasOwnProperty('ActiveXObject'))) {
 
             axObj = createAXO("AcroPDF.PDF");
 
